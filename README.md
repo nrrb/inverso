@@ -1,5 +1,7 @@
 # INVERSO™ what even is color
 
+![INVERSO preview](./INVERSO.png)
+
 A browser-based tool for overlaying text on an image where every character's color is computed **pixel-by-pixel as the inverse of whatever sits underneath it**. Built for designing print-ready artwork specifically DTG (direct-to-garment) t-shirt graphics where text needs to stay legible across both a detailed image and the solid shirt color surrounding it.
 
 Everything runs client-side. No server, no sign-in, no uploads.
