@@ -1,0 +1,7 @@
+[
+  { "family": "Anton", "variants": ["400"], "category": "display" },
+  { "family": "UnifrakturMaguntia", "variants": ["400"], "category": "display" },
+  { "family": "Bebas Neue", "variants": ["400"], "category": "display" },
+  { "family": "Permanent Marker", "variants": ["400"], "category": "handwriting" },
+  { "family": "Bangers", "variants": ["400"], "category": "display" }
+]

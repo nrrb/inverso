@@ -1,0 +1,190 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --magenta: #ff00ff;
+  --cyan: #00ffff;
+  --yellow: #ffff00;
+  --red: #ff0000;
+  --green: #00ff00;
+  --blue: #0000ff;
+  --navy: #000080;
+  --gray: #c0c0c0;
+  --black: #000000;
+  --white: #ffffff;
+  --cream: #ffffcc;
+}
+
+html, body {
+  height: 100%;
+  background: #111;
+  font-family: 'Tahoma', sans-serif;
+}
+
+#app {
+  min-height: 100vh;
+  padding: 8px;
+  background: repeating-linear-gradient(
+    45deg,
+    #ff00ff 0, #ff00ff 20px,
+    #00ffff 20px, #00ffff 40px,
+    #ffff00 40px, #ffff00 60px
+  );
+}
+
+/* ── Animations ── */
+@keyframes marquee {
+  from { transform: translateX(100vw); }
+  to   { transform: translateX(-100%); }
+}
+@keyframes rainbow {
+  from { background-position: 0% 50%; }
+  to   { background-position: 200% 50%; }
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+@keyframes spin-cw {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+@keyframes spin-ccw {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(-360deg); }
+}
+@keyframes wobble {
+  0%, 100% { transform: rotate(-3deg); }
+  50%       { transform: rotate(3deg); }
+}
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50%       { transform: scale(1.08); }
+}
+@keyframes flicker {
+  0%   { color: #ff00ff; }
+  33%  { color: #00ffff; }
+  66%  { color: #ffff00; }
+  100% { color: #ff00ff; }
+}
+
+/* ── Win95 bevels ── */
+.bevel-out {
+  border: 2px solid;
+  border-color: #ffffff #808080 #808080 #ffffff;
+}
+.bevel-in {
+  border: 2px solid;
+  border-color: #808080 #ffffff #ffffff #808080;
+}
+.bevel-out-heavy {
+  border: 3px solid;
+  border-color: #ffffff #808080 #808080 #ffffff;
+}
+
+/* ── Form elements ── */
+.w95-input {
+  background: #ffffff;
+  border: 2px inset #808080;
+  font-family: 'Tahoma', sans-serif;
+  font-size: 12px;
+  color: #000000;
+  padding: 3px 5px;
+  outline: none;
+  width: 100%;
+}
+.w95-input:focus {
+  outline: 1px dotted #000080;
+}
+.w95-label {
+  font-family: 'Tahoma', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #000080;
+  display: block;
+  margin-bottom: 2px;
+}
+.w95-label::before {
+  content: '▸ ';
+}
+
+/* ── Section header bar ── */
+.section-header {
+  background: linear-gradient(90deg, #000080, #0000ff);
+  color: #ffffff;
+  font-family: 'Tahoma', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  user-select: none;
+}
+.section-header .win-controls {
+  display: flex;
+  gap: 2px;
+}
+.section-header .win-btn {
+  width: 14px;
+  height: 14px;
+  background: var(--gray);
+  border: 1px solid;
+  border-color: #ffffff #808080 #808080 #ffffff;
+  font-size: 8px;
+  line-height: 14px;
+  text-align: center;
+  color: #000;
+  cursor: pointer;
+  font-family: 'Tahoma', sans-serif;
+}
+
+/* ── Toggle buttons ── */
+.toggle-btn {
+  background: linear-gradient(180deg, #ff66ff, #ff00ff);
+  border: 2px outset #ff99ff;
+  color: #ffffff;
+  font-family: 'Impact', 'Arial Black', sans-serif;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 0 #000;
+  padding: 3px 8px;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+.toggle-btn.active {
+  background: linear-gradient(180deg, #00ff00, #008800);
+  border: 2px inset #88ff88;
+  color: #000000;
+  text-shadow: none;
+}
+.toggle-btn:hover:not(.active) {
+  background: linear-gradient(180deg, #ff99ff, #ff66ff);
+}
+
+/* ── Scrollbar (Win95-ish) ── */
+::-webkit-scrollbar { width: 16px; height: 16px; }
+::-webkit-scrollbar-track { background: #c0c0c0; }
+::-webkit-scrollbar-thumb {
+  background: #c0c0c0;
+  border: 2px solid;
+  border-color: #ffffff #808080 #808080 #ffffff;
+}
+::-webkit-scrollbar-button {
+  background: #c0c0c0;
+  border: 2px solid;
+  border-color: #ffffff #808080 #808080 #ffffff;
+  height: 16px;
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0s !important;
+    animation-iteration-count: 1 !important;
+  }
+}

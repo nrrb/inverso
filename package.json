@@ -1,0 +1,21 @@
+{
+  "name": "inverted",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc && vite build",
+    "preview": "vite preview",
+    "deploy": "npm run build && surge ./dist <your-subdomain>.surge.sh"
+  },
+  "type": "module",
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^6.0.7",
+    "typescript": "^6.0.3",
+    "vite": "^8.0.13",
+    "vue-tsc": "^3.3.1"
+  },
+  "dependencies": {
+    "canvas-txt": "^4.1.1",
+    "vue": "^3.5.34"
+  }
+}
