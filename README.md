@@ -1,6 +1,6 @@
-# INVERSO™ — what even is color
+# INVERSO™ what even is color
 
-A browser-based tool for overlaying text on an image where every character's color is computed **pixel-by-pixel as the inverse of whatever sits underneath it**. Built for designing print-ready artwork — specifically DTG (direct-to-garment) t-shirt graphics — where text needs to stay legible across both a detailed image and the solid shirt color surrounding it.
+A browser-based tool for overlaying text on an image where every character's color is computed **pixel-by-pixel as the inverse of whatever sits underneath it**. Built for designing print-ready artwork specifically DTG (direct-to-garment) t-shirt graphics where text needs to stay legible across both a detailed image and the solid shirt color surrounding it.
 
 Everything runs client-side. No server, no sign-in, no uploads.
 
@@ -10,7 +10,7 @@ Everything runs client-side. No server, no sign-in, no uploads.
 
 Upload a PNG or JPG. Draw text boxes on the canvas. The text color at every pixel is the inversion of the image beneath it: dark areas produce light text, light areas produce dark text, transparent areas invert the configured background color (e.g. black shirt = `#000000` → white text).
 
-**Result:** text that is always readable, no matter what's underneath — and an exported PNG at the full native resolution of your source image, transparency preserved.
+**Result:** text that is always readable, no matter what's underneath and an exported PNG at the full native resolution of your source image, transparency preserved.
 
 ---
 
@@ -18,8 +18,8 @@ Upload a PNG or JPG. Draw text boxes on the canvas. The text color at every pixe
 
 | Mode | How it works |
 |---|---|
-| **RGB** | `out = (255-r, 255-g, 255-b)` — produces colorful, high-contrast results |
-| **Luminance** | Computes `L = 0.299r + 0.587g + 0.114b`; outputs black where `L > 127`, white otherwise — cleaner for grayscale source images |
+| **RGB** | `out = (255-r, 255-g, 255-b)` produces colorful, high-contrast results |
+| **Luminance** | Computes `L = 0.299r + 0.587g + 0.114b`; outputs black where `L > 127`, white otherwise cleaner for grayscale source images |
 
 ---
 
@@ -29,9 +29,9 @@ Five curated Google Fonts, loaded on demand:
 
 | Font | Character |
 |---|---|
-| **Anton** | Ultra-heavy condensed — Impact's sharper twin |
+| **Anton** | Ultra-heavy condensed Impact's sharper twin |
 | **UnifrakturMaguntia** | Authentic blackletter / Olde English |
-| **Bebas Neue** | Clean all-caps condensed — the t-shirt standard |
+| **Bebas Neue** | Clean all-caps condensed the t-shirt standard |
 | **Permanent Marker** | Hand-drawn marker feel |
 | **Bangers** | Comic book / punk rock |
 
@@ -39,28 +39,28 @@ Five curated Google Fonts, loaded on demand:
 
 ## Using the app
 
-1. **Upload** — drag a PNG or JPG onto the canvas, or click to browse.
-2. **Add text** — click `+ NEW TEXT!!` in the drawer, then click and drag on the canvas to draw a text box.
-3. **Edit** — type in the text content field. Adjust font, size, weight, spacing, alignment, and rotation in the drawer.
-4. **Move / resize** — drag the text box to reposition; drag the yellow handles to resize.
-5. **Adjust background color** — set the "Transparent BG Color" to match your shirt color. This determines what the text inverts against wherever the source image is transparent.
-6. **Export** — click `💾 SAVE .PNG !!!` to download a full-resolution PNG with the text baked in.
+1. **Upload** drag a PNG or JPG onto the canvas, or click to browse.
+2. **Add text** click `+ NEW TEXT!!` in the drawer, then click and drag on the canvas to draw a text box.
+3. **Edit** type in the text content field. Adjust font, size, weight, spacing, alignment, and rotation in the drawer.
+4. **Move / resize** drag the text box to reposition; drag the yellow handles to resize.
+5. **Adjust background color** set the "Transparent BG Color" to match your shirt color. This determines what the text inverts against wherever the source image is transparent.
+6. **Export** click `💾 SAVE .PNG !!!` to download a full-resolution PNG with the text baked in.
 
 ### Text layer controls
 
-- **Font family** — one of the 5 curated fonts above
-- **Size** — font size in pixels at native (export) resolution
-- **Weight** — only weights available for the chosen font are shown
-- **Bold / Italic** — toggles; italic is disabled if the font has no italic variant
-- **Letter spacing** — in px, supports negative values
-- **Line height** — multiplier (e.g. `1.2`)
-- **Alignment** — left / center / right
-- **Rotation** — degrees, slider + numeric input, pivots around the text box center
+- **Font family** one of the 5 curated fonts above
+- **Size** font size in pixels at native (export) resolution
+- **Weight** only weights available for the chosen font are shown
+- **Bold / Italic** toggles; italic is disabled if the font has no italic variant
+- **Letter spacing** in px, supports negative values
+- **Line height** multiplier (e.g. `1.2`)
+- **Alignment** left / center / right
+- **Rotation** degrees, slider + numeric input, pivots around the text box center
 
 ### Global controls
 
-- **Transparent BG Color** — color picker + hex input; defaults to `#000000` (black shirt)
-- **Inversion Mode** — RGB or Luminance
+- **Transparent BG Color** color picker + hex input; defaults to `#000000` (black shirt)
+- **Inversion Mode** RGB or Luminance
 
 ---
 
@@ -106,10 +106,10 @@ This runs `npm run build` then pushes `dist/` to [surge.sh](https://surge.sh). U
 | Framework | Vue 3 (Composition API, `<script setup>`) |
 | Build | Vite |
 | Language | TypeScript |
-| Text rendering | [`canvas-txt`](https://github.com/geongeorge/canvas-txt) — word wrap, alignment, line height on Canvas 2D |
-| Font loading | Google Fonts CSS API — dynamic `<link>` injection + `document.fonts.load()` |
+| Text rendering | [`canvas-txt`](https://github.com/geongeorge/canvas-txt) word wrap, alignment, line height on Canvas 2D |
+| Font loading | Google Fonts CSS API dynamic `<link>` injection + `document.fonts.load()` |
 | Rendering | Native HTML5 Canvas 2D; pixel-level inversion via `ImageData` |
-| State | Vue `reactive` / `ref` — no external store |
+| State | Vue `reactive` / `ref` no external store |
 | Deployment | surge.sh static hosting |
 
 ---
@@ -118,7 +118,7 @@ This runs `npm run build` then pushes `dist/` to [surge.sh](https://surge.sh). U
 
 For each text layer, on every render:
 
-1. The text is rasterized onto an `OffscreenCanvas` as white-on-transparent — producing a **mask** of where the glyphs exist.
+1. The text is rasterized onto an `OffscreenCanvas` as white-on-transparent producing a **mask** of where the glyphs exist.
 2. For every non-transparent pixel in that mask:
    - The corresponding pixel is sampled from the source image.
    - If the source pixel is opaque: its RGB is inverted (RGB mode) or thresholded by luminance.
